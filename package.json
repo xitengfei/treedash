@@ -2,17 +2,33 @@
   "name": "tree-lib",
   "version": "1.0.0",
   "description": "tree utils lib for development",
-  "main": "index.js",
+  "keywords": [
+    "tree",
+    "loop",
+    "iterator"
+  ],
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
   "scripts": {
     "build": "father-build",
     "test": "yarn test"
   },
-  "keywords": [
-    "tree",
-    "loop"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xitengfei/tree-lib.git"
+  },
+  "files": [
+    "dist",
+    "es",
+    "lib"
   ],
   "author": "tengfei.xi",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xitengfei/tree-lib/issues"
+  },
+  "homepage": "https://github.com/xitengfei/tree-lib",
   "dependencies": {
     "@babel/runtime": "^7.12.5"
   },

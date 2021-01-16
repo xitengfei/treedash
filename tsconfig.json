@@ -26,5 +26,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true
   },
+  "include": ["./src", "./typings"],
+  "typings": "./typings/index.d.ts",
   "exclude": ["node_modules", "examples"]
 }

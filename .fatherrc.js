@@ -1,8 +1,8 @@
 export default {
   target: 'browser',
   entry: 'src/index.ts',
-  esm: 'babel',
-  cjs: 'babel',
+  esm: 'rollup',
+  cjs: 'rollup',
   runtimeHelpers: true,
   extraBabelPlugins: [
     [

@@ -1,1 +1,3 @@
-// / <reference path="custom-typings.d.ts" />
+declare module Tree{
+  
+}

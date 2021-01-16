@@ -2,6 +2,8 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   mode: 'site',
+  title: 'Treelib',
+  description: '可能是你见过最完善的微前端解决方案🧐',
   hash: true,
   ssr: {},
   publicPath: '/',
@@ -19,5 +21,6 @@ export default defineConfig({
       content: 'tree lib utils loop',
     },
   ],
-  logo: false,
+  locales: [['zh-CN', '中文'], ['en-US', 'English']],
+  logo: '/tree.png',
 });

@@ -30,7 +30,7 @@ export const treeMap = function (nodes: Array<Node>, iterator: TreeIterator, chi
  * @param {*} nodes
  * @param {*} matchFn the funciton to find target node
  */
-export const treeFindNode = function (nodes: Array<Node>, matchFn: IsMatchFn, childKey: string = 'children'): Node|null{
+export const treeFind = function (nodes: Array<Node>, matchFn: IsMatchFn, childKey: string = 'children'): Node|null{
   if (!nodes || !Array.isArray(nodes)) return null;
   if ('function' !== typeof matchFn) return nodes;
 
@@ -39,7 +39,7 @@ export const treeFindNode = function (nodes: Array<Node>, matchFn: IsMatchFn, ch
     if (matchFn(node)) {
       target = node;
     } else if (node[childKey]) {
-      target = treeFindNode(node[childKey], matchFn);
+      target = treeFind(node[childKey], matchFn);
     }
     if (target) return target;
   }

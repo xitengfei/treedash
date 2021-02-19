@@ -6,13 +6,6 @@ hero:
   actions:
     - text: API文档
       link: /api
-features:
-  - title: 简单
-    desc: 任意 js 框架均可使用。子应用接入像使用接入一个 iframe 系统一样简单，但实际不是 iframe。
-  - title: 完备
-    desc: 几乎包含所有构建微前端系统时所需要的基本能力，如 样式隔离、js 沙箱、预加载等。
-  - title: 生产可用
-    desc: 已在蚂蚁内外经受过足够大量的线上系统的考验及打磨，健壮性值得信赖。
 footer: MIT Licensed | Copyright © 2021-present
 ---
 

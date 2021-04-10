@@ -15,8 +15,8 @@
     "docs:build": "dumi build",
     "start": "yarn docs:dev",
     "build": "father-build",
-    "test": "father-build test",
-    "test:coverage": "father test --coverage"
+    "test": "jest",
+    "prepublish": "npm run test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -35,11 +35,16 @@
     "@babel/runtime": "^7.12.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-typescript": "^7.13.0",
     "@types/lodash": "^4.14.129",
     "@types/vfile-message": "1.x",
+    "babel-jest": "^26.6.3",
     "babel-plugin-import": "^1.13.1",
     "dumi": "^1.0.38",
     "father-build": "^1.17.2",
+    "jest": "^26.6.3",
     "typescript": "^4.1.2"
   },
   "sideEffects": false

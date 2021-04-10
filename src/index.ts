@@ -1,3 +1,4 @@
-import TreeUtils from './tree';
+// import TreeUtils from './tree';
 export * from './interfaces';
-export default TreeUtils;
+export * from './functions';
+// export default TreeUtils;

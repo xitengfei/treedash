@@ -2,307 +2,38 @@
   {
     "code": "110000",
     "name": "北京",
-    "level": 0,
-    "isLeaf": false,
-    "path": "0",
     "children": [
       {
         "code": "110100",
         "name": "北京市",
-        "level": 1,
-        "isLeaf": false,
-        "path": "0,110000",
         "children": [
           {
-            "code": "110101",
-            "name": "东城区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
-            "code": "110102",
-            "name": "西城区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
-            "code": "110103",
-            "name": "崇文区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
-            "code": "110104",
-            "name": "宣武区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
             "code": "110105",
-            "name": "朝阳区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
+            "name": "朝阳区"
           },
           {
             "code": "110106",
-            "name": "丰台区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
-            "code": "110107",
-            "name": "石景山区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
+            "name": "丰台区"
           },
           {
             "code": "110108",
-            "name": "海淀区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
-            "code": "110109",
-            "name": "门头沟区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
-            "code": "110111",
-            "name": "房山区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
+            "name": "海淀区"
           },
           {
             "code": "110112",
-            "name": "通州区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
+            "name": "通州区"
           },
           {
             "code": "110113",
-            "name": "顺义区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
+            "name": "顺义区"
           },
           {
             "code": "110114",
-            "name": "昌平区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
-            "code": "110115",
-            "name": "大兴区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
-            "code": "110116",
-            "name": "怀柔区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
-            "code": "110117",
-            "name": "平谷区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
-            "code": "110228",
-            "name": "密云县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          },
-          {
-            "code": "110229",
-            "name": "延庆县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
+            "name": "昌平区"
           },
           {
             "code": "110230",
-            "name": "其它区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,110000,110100"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "code": "120000",
-    "name": "天津",
-    "level": 0,
-    "isLeaf": false,
-    "path": "0",
-    "children": [
-      {
-        "code": "120100",
-        "name": "天津市",
-        "level": 1,
-        "isLeaf": false,
-        "path": "0,120000",
-        "children": [
-          {
-            "code": "120101",
-            "name": "和平区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120102",
-            "name": "河东区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120103",
-            "name": "河西区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120104",
-            "name": "南开区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120105",
-            "name": "河北区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120106",
-            "name": "红桥区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120107",
-            "name": "塘沽区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120108",
-            "name": "汉沽区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120109",
-            "name": "大港区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120110",
-            "name": "东丽区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120111",
-            "name": "西青区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120112",
-            "name": "津南区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120113",
-            "name": "北辰区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120114",
-            "name": "武清区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120115",
-            "name": "宝坻区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120116",
-            "name": "滨海新区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120221",
-            "name": "宁河县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120223",
-            "name": "静海县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120225",
-            "name": "蓟县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
-          },
-          {
-            "code": "120226",
-            "name": "其它区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,120000,120100"
+            "name": "其它区"
           }
         ]
       }
@@ -311,298 +42,40 @@
   {
     "code": "130000",
     "name": "河北省",
-    "level": 0,
-    "isLeaf": false,
-    "path": "0",
     "children": [
       {
         "code": "130100",
         "name": "石家庄市",
-        "level": 1,
-        "isLeaf": false,
-        "path": "0,130000",
         "children": [
           {
             "code": "130102",
-            "name": "长安区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
+            "name": "长安区"
           },
           {
             "code": "130103",
-            "name": "桥东区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
+            "name": "桥东区"
           },
           {
             "code": "130104",
-            "name": "桥西区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130105",
-            "name": "新华区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130107",
-            "name": "井陉矿区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130108",
-            "name": "裕华区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130121",
-            "name": "井陉县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130123",
-            "name": "正定县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130124",
-            "name": "栾城县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130125",
-            "name": "行唐县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130126",
-            "name": "灵寿县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130127",
-            "name": "高邑县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130128",
-            "name": "深泽县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130129",
-            "name": "赞皇县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130130",
-            "name": "无极县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130131",
-            "name": "平山县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130132",
-            "name": "元氏县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130133",
-            "name": "赵县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130181",
-            "name": "辛集市",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130182",
-            "name": "藁城市",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130183",
-            "name": "晋州市",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130184",
-            "name": "新乐市",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
-          },
-          {
-            "code": "130185",
-            "name": "鹿泉市",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
+            "name": "桥西区"
           },
           {
             "code": "130186",
-            "name": "其它区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130100"
+            "name": "其它区"
           }
         ]
       },
       {
         "code": "130200",
         "name": "唐山市",
-        "level": 1,
-        "isLeaf": false,
-        "path": "0,130000",
         "children": [
           {
             "code": "130202",
-            "name": "路南区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
+            "name": "路南区"
           },
           {
             "code": "130203",
-            "name": "路北区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130204",
-            "name": "古冶区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130205",
-            "name": "开平区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130207",
-            "name": "丰南区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130208",
-            "name": "丰润区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130223",
-            "name": "滦县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130224",
-            "name": "滦南县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130225",
-            "name": "乐亭县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130227",
-            "name": "迁西县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130229",
-            "name": "玉田县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130230",
-            "name": "唐海县",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130281",
-            "name": "遵化市",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130283",
-            "name": "迁安市",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
-          },
-          {
-            "code": "130284",
-            "name": "其它区",
-            "level": 2,
-            "isLeaf": true,
-            "path": "0,130000,130200"
+            "name": "路北区"
           }
         ]
       }

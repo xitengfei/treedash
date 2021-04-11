@@ -1,20 +1,19 @@
-
 /**
- * 从list构建树结构
+ * Build Tree Data from an Array
  */
+
+ interface INode{
+  [key: string]: any;
+  level?: number;
+  isLeaf?: boolean;
+  path?: string;
+}
  export interface buildTreeOptions {
   idKey?: string;
   parentIdKey?: string;
   childKey?: string;
   rootPid?: any;
   getChilds?: (pid: number, level: number, path: string) => Array<INode>;
-}
-
-interface INode{
-  [key: string]: any;
-  level?: number;
-  isLeaf?: boolean;
-  path?: string;
 }
 
 export const buildTree = function(dataSource: Array<INode>, options: buildTreeOptions) {

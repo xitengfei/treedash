@@ -16,7 +16,7 @@
   getChilds?: (pid: number, level: number, path: string) => Array<INode>;
 }
 
-export const buildTree = function(dataSource: Array<INode>, options: buildTreeOptions) {
+export const buildTree = function(dataSource: Array<INode>, options: buildTreeOptions = {}) {
   if (!dataSource || !dataSource.length) return [];
 
   const { 
@@ -48,9 +48,8 @@ export const buildTree = function(dataSource: Array<INode>, options: buildTreeOp
     });
   };
 
-  const ret = loop(rootPid, 0, rootPid);
   // console.log('loop count:', counter, dataSource.length);
-  return ret;
+  return loop(rootPid, 0, rootPid);
 };
 
 export default buildTree;

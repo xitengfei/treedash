@@ -10,9 +10,9 @@ import {
  * @param {*} matchFn
  * @return Array TreeData （返回完整树结构）
  */
- const treeSearch = function (treeData: Array<Node>, matchFn: IsMatchFn, options: ITreeOptions): Array<Node> {
-  if (!treeData || !Array.isArray(treeData)) return null;
-  if ('function' !== typeof matchFn) return null;
+ const treeSearch = function (treeData: Array<Node>, matchFn: IsMatchFn, options: ITreeOptions = {}): Array<Node> {
+  if (!treeData || !Array.isArray(treeData)) return [];
+  if ('function' !== typeof matchFn) return [];
 
   const {
     childKey = 'children'

@@ -13,7 +13,7 @@ interface IOptions extends ITreeOptions{
  * @param {*} treeData
  * @param {*} matchFn [function]
  */
-const treeDelete = function (treeData: Array<Node>, matchFn: IsMatchFn, options: IOptions): Array<Node>{
+const treeDelete = function (treeData: Array<Node>, matchFn: IsMatchFn, options: IOptions = {}): Array<Node>{
   if (!treeData || !Array.isArray(treeData)) return treeData;
   if ('function' !== typeof matchFn) return treeData;
 
@@ -40,7 +40,7 @@ const treeDelete = function (treeData: Array<Node>, matchFn: IsMatchFn, options:
         }
         return node;
       }
-    }).filter(node => null !== node);
+    }).filter(node => null !== node) as Array<Node>;
   }
 
   return loop(treeData);

@@ -16,7 +16,7 @@ interface IOptions extends ITreeOptions{
  * @param {*} matchFn the funciton to find/filter target node
  * @param {*} updateFn the function to replace target node
  */
-const treeUpdate = function (treeData: Array<Node>, matchFn: IsMatchFn, updateFn: TreeIterator, options: IOptions): Array<Node>|null{
+const treeUpdate = function (treeData: Array<Node>, matchFn: IsMatchFn, updateFn: TreeIterator, options: IOptions = {}): Array<Node>|null{
   if (!treeData || !Array.isArray(treeData)) return treeData;
   if ('function' !== typeof matchFn || 'function' !== typeof updateFn) return treeData;
 

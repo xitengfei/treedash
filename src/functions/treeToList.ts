@@ -8,7 +8,7 @@ import treeMap from './treeMap';
  * 树形转换为数组
  * @param {*} node
  */
- export const treeToList = function (treeData: Array<Node>, options: ITreeOptions) : Array<Node>{
+ export const treeToList = function (treeData: Array<Node>, options: ITreeOptions={}) : Array<Node>{
   if (!treeData || !Array.isArray(treeData)) return [];
 
   const {

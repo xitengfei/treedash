@@ -1,10 +1,10 @@
 const city = require('./json/city.json');
 const cityTree = require('./json/cityTreeData.json');
-import {buildTree} from '../src';
+import {treeBuild} from '../src';
 
 const formatCity = function(){
   const list = Object.keys(city).map(code => ({code, childs: city[code]}));
-  const tree = buildTree(list, {
+  const tree = treeBuild(list, {
     idKey: 'code',
     rootPid: '0',
     getChilds: (pid, level, path) => {
@@ -16,7 +16,7 @@ const formatCity = function(){
   return tree;
 }
 
-describe('buildTree Test: ', () => {
+describe('treeBuild Test: ', () => {
   test('convart city list to city tree data', () => {
     expect(formatCity()).toEqual(cityTree);
   });

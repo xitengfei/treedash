@@ -17,7 +17,7 @@ const formatCity = function(){
 }
 
 describe('treeBuild Test: ', () => {
-  test('convart city list to city tree data', () => {
+  test('converrt city list to city tree data', () => {
     expect(formatCity()).toEqual(cityTree);
   });
 });

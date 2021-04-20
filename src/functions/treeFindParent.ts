@@ -6,6 +6,7 @@ import {
 
 /**
  * Find Parent of A Node
+ * find类方法的目标是 找到一个目标即返回
  * @param {*} nodes
  * @param {*} matchFn
  */
@@ -17,20 +18,21 @@ const treeFindParent = function (treeData: Node, matchFn: IsMatchFn, options: IT
     childKey = 'children'
   } = options;
 
-  const recurser = function(node: Node): Node|null{
-    for (let child of node[childKey]) {
+  const loop = function(nodes: Array<Node>, parent: Node|null = null): Node|null{
+    for(let node of nodes){
       let target = null;
-      if (matchFn(child)) {
-        target = node;
-      } else if(child[childKey]){
-        target = recurser(child);
+      if(matchFn(node)){
+        target = parent;
+      } else if(node[childKey]){
+        target = loop(node[childKey], node);
       }
-      if (target) return target;
+
+      if(target) return parent;
     }
     return null;
   }
 
-  return recurser(treeData);
+  return loop(treeData);
 };
 
 export default treeFindParent;

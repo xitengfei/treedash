@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xitengfei/tree-lib.git"
+    "url": "git+https://github.com/xitengfei/treedash.git"
   },
   "files": [
     "dist"
@@ -28,9 +28,9 @@
   "author": "tengfei.xi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xitengfei/tree-lib/issues"
+    "url": "https://github.com/xitengfei/treedash/issues"
   },
-  "homepage": "https://github.com/xitengfei/tree-lib",
+  "homepage": "https://github.com/xitengfei/treedash",
   "dependencies": {
     "@babel/runtime": "^7.12.5"
   },

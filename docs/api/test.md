@@ -5,7 +5,7 @@ title: API Test
 #### 基本用法
 ```jsx
 import React from 'react';
-import {treeMap} from '@xitengfei/tree-utils';
+import {treeMap} from 'treedash';
 
 window.treeMap = treeMap;
 

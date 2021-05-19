@@ -1,7 +1,7 @@
 ---
 home: true
 hero:
-  title: Tree Utils
+  title: Treedash
   desc: 一个简单易用的TreeData操作工具库
   actions:
     - text: API文档
@@ -31,9 +31,9 @@ Treelib 通过封装常用的树形数据操作方法，使的JavaScript数据�
 
 ### 安装
 ```
-npm install @xitengfei/tree-utils
+npm install treedash
 
 //or
 
-yarn add @xitengfei/tree-utils
+yarn add treedash
 ```

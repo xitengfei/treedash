@@ -11,9 +11,12 @@ export default defineConfig({
   resolve: {
     includes: ['docs']
   },
+  devServer: {
+    port: 8001
+  },
   navs: [
     null,
-    { title: 'SourceCode', path: 'https://github.com/xitengfei/tree-lib' },
+    { title: 'SourceCode', path: 'https://github.com/xitengfei/treedash' },
   ],
   metas: [
     {
@@ -22,5 +25,5 @@ export default defineConfig({
     },
   ],
   locales: [['zh-CN', '中文'], ['en-US', 'English']],
-  logo: '/tree.png',
+  logo: '/tree.png'
 });

@@ -14,7 +14,7 @@ footer: MIT Licensed | Copyright © 2021-present
 
 ## 简介
 
-Treelib 通过封装常用的树形数据操作方法，使的JavaScript数据业务变得更简单。 它非常适用于：
+Treedash 通过封装常用的树形数据操作方法，使的JavaScript数据业务变得更简单。 它非常适用于：
 
 - 遍历treeData
 - 查找treeData
@@ -31,7 +31,7 @@ Treelib 通过封装常用的树形数据操作方法，使的JavaScript数据�
 
 ### 安装
 ```
-npm install treedash
+npm install treedash --save
 
 //or
 

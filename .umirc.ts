@@ -5,14 +5,13 @@ export default defineConfig({
   title: 'Treelib',
   description: '可能是你见过最完善的微前端解决方案🧐',
   hash: true,
-  ssr: {},
   publicPath: '/',
   base: '/',
   resolve: {
     includes: ['docs']
   },
   devServer: {
-    port: 8001
+    port: 3006
   },
   navs: [
     null,

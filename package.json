@@ -42,7 +42,7 @@
     "@types/vfile-message": "1.x",
     "babel-jest": "^26.6.3",
     "babel-plugin-import": "^1.13.1",
-    "dumi": "^1.0.38",
+    "dumi": "^1.1.18",
     "father-build": "^1.17.2",
     "jest": "^26.6.3",
     "typescript": "^4.1.2"

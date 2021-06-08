@@ -3,7 +3,7 @@ import { defineConfig } from 'dumi';
 export default defineConfig({
   mode: 'site',
   title: 'Treelib',
-  description: '可能是你见过最完善的微前端解决方案🧐',
+  description: '一个轻量级的Javascript树形数据处理工具库',
   hash: true,
   publicPath: '/',
   base: '/',

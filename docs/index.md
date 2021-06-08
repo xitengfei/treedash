@@ -2,7 +2,7 @@
 home: true
 hero:
   title: Treedash
-  desc: 一个简单易用的TreeData操作工具库
+  desc: 一个轻量级的Javascript树形数据处理工具库
   actions:
     - text: API文档
       link: /api

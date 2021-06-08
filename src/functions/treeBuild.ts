@@ -8,11 +8,26 @@
   isLeaf?: boolean;
   path?: string;
 }
- export interface buildTreeOptions {
+export interface buildTreeOptions {
+  /**
+   * id列的键, 默认值“id”
+   */
   idKey?: string;
+  /**
+   * pid列的键, 默认值“pid”
+   */
   parentIdKey?: string;
+  /**
+   * 构造的树形数据的children键, 默认值“children”
+   */
   childKey?: string;
+  /**
+   * 指定根节点的pid, 默认值为0
+   */
   rootPid?: any;
+  /**
+   * 用于没有pid关系的情况，自己提供找到子节点的方法
+   */
   getChilds?: (pid: number, level: number, path: string) => Array<INode>;
 }
 

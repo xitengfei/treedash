@@ -57,15 +57,55 @@ interface buildTreeOptions {
 
 // 基本用法
 const listData = [
-  {},
+  {"code": "130000","name": "河北省", parentCode: ''},
+  {"code": "130100","name": "石家庄市", parentCode: "130000"},
+  {"code": "130102","name": "长安区", parentCode: "130100"},
+  {"code": "130103","name": "桥东区", parentCode: "130100"},
 ];
-const treeData = treeBuild(list);
+const treeData = treeBuild(listData, {
+  idKey: 'code',
+  parentIdKey: 'parentCode',
+  rootPid: '',
+});
 ```
 
 ## treeCount
 对treeData节点进行统计
 
+##### 参数
+- treeData(**Array\<INode\>**): 树形数据
+- options(**ITreeOptions**): 配置项(可选)
 
+##### 返回
+number
+
+#### Example
+```javascript
+const treeData = [
+  {
+    "code": "130000",
+    "name": "河北省",
+    "children": [
+      {
+        "code": "130100",
+        "name": "石家庄市",
+        "children": [
+          {
+            "code": "130102",
+            "name": "长安区",
+          },
+          {
+            "code": "130103",
+            "name": "桥东区",
+          },
+        ]
+      }
+    ]
+  }
+];
+treeCount(treeData);
+// => 4
+```
 
 ## treeDelete
 从treeData上删除节点

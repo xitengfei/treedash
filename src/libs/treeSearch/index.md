@@ -8,10 +8,8 @@ title: treeSearch
 
 
 
-## treeBuild
-从一个具有树形关系的列表数据构建出树形结构的数据。<br />
-列表源数据中，<b>树形关系</b>需要用类似id，pid的形式给出或通过getChilds方法给出指定节点的子节点
-
+## treeSearch
+在treeData中搜索, 返回完整的treeData结构
 ##### 参数
 - dataSource(**Array\<INode\>**): 具有树形关系的源列表数据
 - options(**buildTreeOptions**): 配置项(可选)

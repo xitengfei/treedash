@@ -44,10 +44,10 @@ interface buildTreeOptions {
 }
 ```
 
-##### 返回
+##### **返回**
 Tree Data(**Array\<TreeNode\>**)
 
-#### 例子
+#### **例子**
 ```javascript
 
 // 基本用法

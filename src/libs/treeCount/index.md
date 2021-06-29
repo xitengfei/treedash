@@ -7,17 +7,17 @@ title: treeCount
 ---
 
 
-## treeCount
+## **treeCount(treeData, [Options])**
 对treeData节点进行统计
 
-##### 参数
+##### **参数**
 - treeData(**Array\<INode\>**): 树形数据
 - options(**ITreeOptions**): 配置项(可选)
 
-##### 返回
+##### **返回**
 number
 
-#### 例子
+#### **例子**
 ```javascript
 const treeData = [
   {

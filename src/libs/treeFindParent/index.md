@@ -8,9 +8,8 @@ title: treeFindParent
 
 
 
-## treeBuild
-从一个具有树形关系的列表数据构建出树形结构的数据。<br />
-列表源数据中，<b>树形关系</b>需要用类似id，pid的形式给出或通过getChilds方法给出指定节点的子节点
+## treeFindParent
+在treeData中查找指定节点的父节点
 
 ##### 参数
 - dataSource(**Array\<INode\>**): 具有树形关系的源列表数据

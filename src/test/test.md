@@ -5,9 +5,9 @@ title: API Test
 #### 基本用法
 ```jsx
 import React from 'react';
-import {treeMap} from 'treedash';
+import * as treedash from 'treedash';
 
-window.treeMap = treeMap;
+window.treedash = treedash;
 
 export default () => {
   return (

@@ -2,7 +2,7 @@ import {
   Node,
   ITreeOptions
 } from '../interfaces';
-import treeMap from './treeMap';
+import treeMap from '../treeMap';
 
 /**
  * 树形转换为数组

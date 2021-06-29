@@ -8,10 +8,10 @@ export default defineConfig({
   publicPath: '/',
   base: '/',
   resolve: {
-    includes: ['docs']
+    includes: ['src']
   },
   devServer: {
-    port: 3006
+    port: 8001
   },
   navs: [
     null,

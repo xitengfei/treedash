@@ -18,6 +18,8 @@ const treeMap = function(treeData: Array<Node>, iterator: TreeIterator, options:
   const loop = function(nodes: Array<Node>, parent?: Node): Array<Node>{
     return nodes.map((node: Node) => {
       let nextNode = iterator(node, parent);
+
+      // 这里默认使用 iterator返回的新node而不是原Node去判断进入下层递归
       if (nextNode[childKey] && nextNode[childKey].length) {
         return {
           ...nextNode,

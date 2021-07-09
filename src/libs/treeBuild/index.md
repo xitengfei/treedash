@@ -8,11 +8,13 @@ title: treeBuild
 
 
 
-##### **treeBuild(dataSource, [buildTreeOptions])**
+## **treeBuild(dataSource, [buildTreeOptions])**
 
 从一个具有树形关系的列表数据构建出树形结构的数据。<br />
 
-<Badge>tips:</Badge> 列表源数据(dataSource)中，<b>树形关系</b>需要用类似id，pid的形式给出或通过getChilds方法给出指定节点的子节点
+<Alert type="info">
+  列表源数据(dataSource)中，<b>树形关系</b>需要用类似id，pid的形式给出或通过getChilds方法给出指定节点的子节点 
+</Alert>
 
 ##### **参数**
 - dataSource(**Array\<INode\>**): 具有树形关系的源列表数据
@@ -47,10 +49,9 @@ interface buildTreeOptions {
 ##### **返回**
 Tree Data(**Array\<TreeNode\>**)
 
-#### **例子**
+##### **例子**
 ```javascript
 
-// 基本用法
 const listData = [
   {"code": "130000","name": "河北省", parentCode: ''},
   {"code": "130100","name": "石家庄市", parentCode: "130000"},

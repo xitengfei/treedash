@@ -27,7 +27,7 @@ const treeFindParent = function (treeData: Node, matchFn: IsMatchFn, options: IT
         target = loop(node[childKey], node);
       }
 
-      if(target) return parent;
+      if(target) return target;
     }
     return null;
   }

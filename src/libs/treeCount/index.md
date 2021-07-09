@@ -7,7 +7,7 @@ title: treeCount
 ---
 
 
-## **treeCount(treeData, [Options])**
+## **treeCount(treeData, [options])**
 对treeData节点进行统计
 
 ##### **参数**
@@ -17,7 +17,7 @@ title: treeCount
 ##### **返回**
 number
 
-#### **例子**
+##### **例子**
 ```javascript
 const treeData = [
   {

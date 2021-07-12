@@ -20,6 +20,7 @@ module.exports = {
     '/node_modules/',
     '/docs/',
     '/build/',
-    '/typings/'
+    '/typings/',
+    'src/test/'
   ]
 };

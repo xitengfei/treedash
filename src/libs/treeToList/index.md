@@ -52,31 +52,48 @@ var treeData = [
   }
 ];
 
-treeToList(treeData);
+treedash.treeToList(treeData);
+```
 
-/**
- * 结果
- * [
+
+##### 试一下
+```jsx
+import React, {useState} from 'react';
+import * as treedash from 'treedash';
+import {CodeExcuter} from '../../components';
+window.treedash = treedash;
+
+const initCode = `
+  var treeData = [
     {
-        "code":"130000",
-        "name":"河北省"
+      "code": "130000",
+      "name": "河北省",
+      "children": [
+        {
+          "code": "130100",
+          "name": "石家庄市",
+          "children": [
+            {
+              "code": "130102",
+              "name": "长安区",
+            },
+            {
+              "code": "130103",
+              "name": "桥东区",
+            },
+          ]
+        }
+      ]
     },
     {
-        "code":"130100",
-        "name":"石家庄市"
-    },
-    {
-        "code":"130102",
-        "name":"长安区"
-    },
-    {
-        "code":"130103",
-        "name":"桥东区"
-    },
-    {
-        "code":"140000",
-        "name":"山西省"
+      "code": "140000",
+      "name": "山西省"
     }
-  ]
-*/
+  ];
+  treedash.treeToList(treeData);
+`;
+
+export default () => {
+  return (<CodeExcuter initialCode={initCode} />);
+}
 ```

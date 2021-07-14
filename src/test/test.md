@@ -6,7 +6,7 @@ title: API Test
 ```jsx
 import React, {useState} from 'react';
 import * as treedash from 'treedash';
-import CodeRunner from './CodeRunner.tsx';
+import {CodeExcuter} from '../components';
 
 window.treedash = treedash;
 
@@ -39,7 +39,7 @@ const initCode = `
 export default () => {
   return (
     <div>
-      <CodeRunner initialCode={initCode} />
+      <CodeExcuter initialCode={initCode} />
     </div>
   )
 }

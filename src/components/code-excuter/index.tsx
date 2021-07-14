@@ -9,6 +9,7 @@ const StyledWarapper = styled.div`
   width: 100%;
   display: flex;
   align-items: stretch;
+  height: 360px;
 `;
 const Card = styled.div`
   border: 1px solid #ddd;
@@ -16,6 +17,9 @@ const Card = styled.div`
   flex: 1;
   border-radius: 4px;
   margin: 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 const CardHeader = styled.div`
   padding: 10px 15px;
@@ -46,19 +50,22 @@ const Button = styled.button`
 
 const CardContent = styled.div`
   padding: 0;
+  flex: 1;
   &.result{
     padding: 16px;
+    overflow-y: auto;
   }
 `;
 
 const TextArea = styled.textarea({
-  width: '100%',
+  width: 'calc(100% - 5px)',
   height: '300px',
   border: 'none',
   outline: 'none',
+  overflow: 'visible'
 });
 
-const MyComponent: React.FC<IProps> = function(props){
+const CodeExcuter: React.FC<IProps> = function(props){
   const {
     initialCode
   } = props;
@@ -70,7 +77,7 @@ const MyComponent: React.FC<IProps> = function(props){
     let retStr = '';
     try {
       const ret = eval(code);
-      retStr = JSON.stringify(ret);
+      retStr = JSON.stringify(ret, null, 4);
     } catch (error) {
       console.log('error message: ', error);
       retStr = error.toString();
@@ -96,11 +103,11 @@ const MyComponent: React.FC<IProps> = function(props){
           <Button>运行结果</Button>
         </CardHeader>
         <CardContent className="result">
-          {result}
+          <pre>{result}</pre>
         </CardContent>
       </Card>
     </StyledWarapper>
   )
 }
 
-export default MyComponent;
+export default CodeExcuter;

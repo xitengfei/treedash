@@ -21,6 +21,6 @@ module.exports = {
     '/docs/',
     '/build/',
     '/typings/',
-    'src/test/'
+    'src/components/'
   ]
 };

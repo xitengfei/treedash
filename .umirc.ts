@@ -2,7 +2,7 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   mode: 'site',
-  title: 'Treelib',
+  title: 'Treedash',
   description: '一个轻量级的Javascript树形数据处理工具库',
   hash: true,
   publicPath: '/',

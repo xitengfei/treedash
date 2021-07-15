@@ -7,6 +7,7 @@ export default defineConfig({
   hash: true,
   publicPath: '/',
   base: '/',
+  outputPath: 'docs',
   resolve: {
     includes: ['src']
   },

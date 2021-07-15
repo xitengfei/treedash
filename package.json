@@ -16,7 +16,9 @@
     "start": "yarn docs:dev",
     "build": "father-build",
     "test": "jest",
-    "prepublish": "npm run test && npm run build"
+    "prepublish": "npm run test && npm run build",
+    "predeploy": "npm run docs:build",
+    "deploy": "gh-pages -d docs"
   },
   "repository": {
     "type": "git",
@@ -30,10 +32,11 @@
   "bugs": {
     "url": "https://github.com/xitengfei/treedash/issues"
   },
-  "homepage": "https://github.com/xitengfei/treedash",
+  "homepage": "http://treedash.xitf.vip/",
   "dependencies": {
     "@babel/runtime": "^7.12.5",
-    "@emotion/react": "^11.4.0"
+    "@emotion/react": "^11.4.0",
+    "gh-pages": "^3.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",

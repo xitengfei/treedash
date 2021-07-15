@@ -49,28 +49,44 @@ const treeData = [
   }
 ];
 
-treeDelete(treeData, node => node.name === '长安区');
+treedash.treeDelete(treeData, node => node.name === '长安区');
+```
 
-/**
-* 结果
-*
-[
+##### 试一下
+```jsx
+import React, {useState} from 'react';
+import * as treedash from 'treedash';
+import {CodeExcuter} from '../../components';
+window.treedash = treedash;
+
+const initCode = `
+  const treeData = [
     {
-        "code":"130000",
-        "name":"河北省",
-        "children":[
+      "code": "130000",
+      "name": "河北省",
+      "children": [
+        {
+          "code": "130100",
+          "name": "石家庄市",
+          "children": [
             {
-                "code":"130100",
-                "name":"石家庄市",
-                "children":[
-                    {
-                        "code":"130103",
-                        "name":"桥东区"
-                    }
-                ]
-            }
-        ]
+              "code": "130102",
+              "name": "长安区",
+            },
+            {
+              "code": "130103",
+              "name": "桥东区",
+            },
+          ]
+        }
+      ]
     }
-]
-*/
+  ];
+
+  treedash.treeDelete(treeData, node => node.name === '长安区');
+`;
+
+export default () => {
+  return (<CodeExcuter initialCode={initCode} />);
+}
 ```

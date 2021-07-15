@@ -77,7 +77,7 @@ const CodeExcuter: React.FC<IProps> = function(props){
     let retStr = '';
     try {
       const ret = eval(code);
-      retStr = JSON.stringify(ret, null, 4);
+      retStr = JSON.stringify(ret, null, 2);
     } catch (error) {
       console.log('error message: ', error);
       retStr = error.toString();

@@ -58,52 +58,36 @@ const listData = [
   {"code": "130102","name": "长安区", parentCode: "130100"},
   {"code": "130103","name": "桥东区", parentCode: "130100"},
 ];
-const treeData = treeBuild(listData, {
+treedash.treeBuild(listData, {
   idKey: 'code',
   parentIdKey: 'parentCode',
   rootPid: '',
 });
+```
 
-/**
- * 结果
- * 
-[
-    {
-        "code":"130000",
-        "name":"河北省",
-        "parentCode":"",
-        "level":0,
-        "isLeaf":false,
-        "path":"",
-        "children":[
-            {
-                "code":"130100",
-                "name":"石家庄市",
-                "parentCode":"130000",
-                "level":1,
-                "isLeaf":false,
-                "path":",130000",
-                "children":[
-                    {
-                        "code":"130102",
-                        "name":"长安区",
-                        "parentCode":"130100",
-                        "level":2,
-                        "isLeaf":true,
-                        "path":",130000,130100"
-                    },
-                    {
-                        "code":"130103",
-                        "name":"桥东区",
-                        "parentCode":"130100",
-                        "level":2,
-                        "isLeaf":true,
-                        "path":",130000,130100"
-                    }
-                ]
-            }
-        ]
-    }
-] 
-*/
+
+##### 试一下
+```jsx
+import React, {useState} from 'react';
+import * as treedash from 'treedash';
+import {CodeExcuter} from '../../components';
+window.treedash = treedash;
+
+const initCode = `
+  const listData = [
+    {"code": "130000","name": "河北省", parentCode: ''},
+    {"code": "130100","name": "石家庄市", parentCode: "130000"},
+    {"code": "130102","name": "长安区", parentCode: "130100"},
+    {"code": "130103","name": "桥东区", parentCode: "130100"},
+  ];
+  treedash.treeBuild(listData, {
+    idKey: 'code',
+    parentIdKey: 'parentCode',
+    rootPid: '',
+  });
+`;
+
+export default () => {
+  return (<CodeExcuter initialCode={initCode} />);
+}
 ```

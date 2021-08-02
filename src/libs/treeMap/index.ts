@@ -23,7 +23,7 @@ const treeMap = function(treeData: Array<Node>, iterator: TreeIterator, options:
       if (nextNode[childKey] && nextNode[childKey].length) {
         return {
           ...nextNode,
-          [childKey]: loop(nextNode[childKey], node),
+          [childKey]: loop(nextNode[childKey], nextNode),
         };
       } else {
         return nextNode;

@@ -10,3 +10,7 @@ export type IsMatchFn = (node: Node) => boolean;
 export interface ITreeOptions{
   childKey?: string;
 }
+
+export interface AnyObj{
+  [key: string]: any;
+}

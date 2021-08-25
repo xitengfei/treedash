@@ -19,7 +19,7 @@ const treeDelete = function (treeData: Array<Node>, matchFn: IsMatchFn, options:
 
   const {
     childKey = 'children',
-    deleteEmptyParent = true
+    deleteEmptyParent = false
   } = options;
 
   const loop = function(nodes: Array<Node>): Array<Node>{

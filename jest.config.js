@@ -10,7 +10,7 @@
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
-    "src/**/*.{js,jsx,ts,tsx}",
+    "src/libs/**/*.{js,jsx,ts,tsx}",
     "!**/node_modules/**",
     "!**/docs/**",
     "!**/dist/**",
@@ -20,8 +20,6 @@ module.exports = {
     '/node_modules/',
     '/docs/',
     '/build/',
-    '/typings/',
-    'src/components/',
-    'src/test/'
+    '/typings/'
   ]
 };

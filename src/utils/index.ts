@@ -1,5 +1,8 @@
 const _toString = Object.prototype.toString;
-const variableTypeMap = {
+
+type VariableType = 'Array'|'Object'|'Function'|'String'|'Null'|'Undefined'|'Boolean'|'Number';
+
+const variableTypeMap: any = {
   array: 'Array',
   object: 'Object',
   function: 'Function',
@@ -12,6 +15,6 @@ const variableTypeMap = {
 const getType = (item: any): string => {
   return _toString.call(item).slice(8, -1)
 }
-export const isTypeOf = (item: any, type: string): boolean => {
+export const isTypeOf = (item: any, type: VariableType): boolean => {
   return variableTypeMap[type] && variableTypeMap[type] === getType(item)
 }

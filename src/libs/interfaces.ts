@@ -11,6 +11,14 @@ export interface ITreeOptions{
   childKey?: string;
 }
 
+export interface BaseOptions{
+  childKey?: string;
+}
+
 export interface AnyObj{
   [key: string]: any;
+}
+
+export interface IsMatch<T>{
+  (node: T): boolean
 }

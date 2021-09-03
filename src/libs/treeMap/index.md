@@ -51,8 +51,9 @@ const treeData = [
   }
 ];
 
-treedash.treeMap(treeData, (node)=>{
-  return {...node, label: `${node.name}(${node.code})`};
+treedash.treeMap(treeData, (node, parent)=>{
+  const level = parent ? parent.level + 1 : 1;
+  return {...node, level};
 });
 ```
 
@@ -89,8 +90,9 @@ const initCode = `
     }
   ];
 
-  treedash.treeMap(treeData, (node)=>{
-    return {...node, label: node.name + '(' + node.code + ')'};
+  treedash.treeMap(treeData, (node, parent)=>{
+    const level = parent ? parent.level + 1 : 1;
+    return {...node, level};
   });
 `;
 

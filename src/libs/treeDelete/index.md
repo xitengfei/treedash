@@ -18,6 +18,7 @@ title: treeDelete
 ```typescript
 interface ITreeOptions{
   childKey?: string;
+  deleteEmptyParent?: boolean; // 默认值true
 }
 ```
 

@@ -1,6 +1,6 @@
 const _toString = Object.prototype.toString;
 
-type VariableType = 'Array'|'Object'|'Function'|'String'|'Null'|'Undefined'|'Boolean'|'Number';
+type VariableType = 'array'|'object'|'function'|'string'|'null'|'undefined'|'boolean'|'number';
 
 const variableTypeMap: any = {
   array: 'Array',

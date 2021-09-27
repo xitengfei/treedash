@@ -11,21 +11,22 @@ interface IOptions extends BaseOptions{
 /**
  * Tree Find
  * 使用广度优先算法, 只返回一个目标节点
- * @param nodes 
- * @param matchFn 
+ * @param treeData 
+ * @param isMatch 
  * @param options 
  * @returns 
  */
-const treeFindBFS = function <T extends AnyObj>(nodes: Array<T>, isMatch: IsMatch<T>, options: IOptions = {}): T | null {
-  if (!isTypeOf(nodes, 'Array')) return null;
-  if (isTypeOf(isMatch, 'Function')) return null;
+const treeFindBFS = function <T extends AnyObj>(treeData: Array<T>, isMatch: IsMatch<T>, options: IOptions = {}): T | null {
+  // check params
+  if (!isTypeOf(treeData, 'array')) return null;
+  if (!isTypeOf(isMatch, 'function')) return null;
 
   const {
     childKey = 'children'
   } = options;
 
   let target: T | null = null;
-  let queue = [...nodes];
+  let queue = [...treeData];
   let visited: Array<any> = []; // 用于处理环状数据
 
   while (queue.length) {
@@ -35,7 +36,7 @@ const treeFindBFS = function <T extends AnyObj>(nodes: Array<T>, isMatch: IsMatc
     if (isMatch(current)) {
       target = current;
       break;
-    }else if (current.children) {
+    }else if (current[childKey]) {
       for (let child of current[childKey]) {
         const index = visited.indexOf(child);
         if(!~index) queue.push(child);

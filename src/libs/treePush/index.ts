@@ -1,9 +1,8 @@
 import {
   AnyObj, 
-  ITreeOptions
+  BaseOptions
 } from '../interfaces';
 import {isTypeOf} from '../../utils';
-
 
 interface IsTargetParent{
   <T>(node: T): boolean
@@ -19,7 +18,7 @@ interface IsTargetParent{
  * @param options 
  * @returns 
  */
-const treePush = function<T extends AnyObj>(treeData: Array<T>, newNodes: Array<T>, isTargetParent?: IsTargetParent, options: ITreeOptions = {}): Array<T>|null{
+const treePush = function<T extends AnyObj>(treeData: Array<T>, newNodes: Array<T>, isTargetParent: IsTargetParent, options: BaseOptions = {}): Array<T>|null{
   if (!isTypeOf(treeData, 'array') || !newNodes) return treeData;
 
   const {

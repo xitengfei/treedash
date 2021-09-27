@@ -1,24 +1,16 @@
-export interface Node extends Object{
-  [key: string]: any;
-  children?: Array<Node>;
-};
-
-export type TreeIterator = (node: Node, parent?: Node) => Node;
-
-export type IsMatchFn = (node: Node) => boolean;
-
-export interface ITreeOptions{
-  childKey?: string;
-}
-
-export interface BaseOptions{
-  childKey?: string;
-}
 
 export interface AnyObj{
   [key: string]: any;
 }
 
+export interface BaseOptions{
+  /**
+   * 构造的树形数据的children键, 默认值“children”
+   */
+  childKey?: string;
+}
 export interface IsMatch<T>{
   (node: T): boolean
 }
+
+export type TreeIterator<T> = (node: T, parent?: T) => T;

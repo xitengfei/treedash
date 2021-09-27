@@ -1,27 +1,32 @@
 import {
-  Node, 
-  IsMatchFn,
-  ITreeOptions
+  AnyObj, 
+  IsMatch,
+  BaseOptions
 } from '../interfaces';
+import {isTypeOf} from '../../utils';
 
 /**
  * Find Parent of A Node
  * find类方法的目标是 找到一个目标即返回
- * @param {*} nodes
- * @param {*} matchFn
+ * @param treeData 
+ * @param isMatch 
+ * @param options 
+ * @returns 
  */
-const treeFindParent = function (treeData: Node, matchFn: IsMatchFn, options: ITreeOptions = {}): Node|null{
-  if (!treeData || !Array.isArray(treeData)) return null;
-  if ('function' !== typeof matchFn) return treeData;
+const treeFindParent = function<T extends AnyObj>(treeData: Array<T>, isMatch: IsMatch<T>, options: BaseOptions = {}): T|null{
+  // check params
+  if (!isTypeOf(treeData, 'array')) return null;
+  if (!isTypeOf(isMatch, 'function')) return null;
 
   const {
     childKey = 'children'
   } = options;
 
-  const loop = function(nodes: Array<Node>, parent: Node|null = null): Node|null{
+  const loop = function(nodes: Array<T>, parent: T|null = null): T|null{
     for(let node of nodes){
       let target = null;
-      if(matchFn(node)){
+
+      if(isMatch(node)){
         target = parent;
       } else if(node[childKey]){
         target = loop(node[childKey], node);

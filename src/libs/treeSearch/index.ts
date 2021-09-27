@@ -1,28 +1,31 @@
 import {
-  Node, 
-  IsMatchFn,
-  ITreeOptions
+  IsMatch,
+  AnyObj,
+  BaseOptions
 } from '../interfaces';
+import {isTypeOf} from '../../utils';
 
 /**
- * Search In Data Tree
- * @param {*} TreeData
- * @param {*} matchFn
- * @return Array TreeData （返回完整树结构）
+ * Search In Data Tree（返回完整树结构）
+ * @param treeData 
+ * @param isMatch 
+ * @param options 
+ * @returns 
  */
- const treeSearch = function (treeData: Array<Node>, matchFn: IsMatchFn, options: ITreeOptions = {}): Array<Node> {
-  if (!treeData || !Array.isArray(treeData)) return [];
-  if ('function' !== typeof matchFn) return [];
+ const treeSearch = function<T extends AnyObj>(treeData: Array<T>, isMatch: IsMatch<T>, options: BaseOptions = {}): Array<T> {
+  // check params
+  if (!isTypeOf(treeData, 'array')) return [];
+  if (!isTypeOf(isMatch, 'function')) return [];
 
   const {
     childKey = 'children'
   } = options;
 
-  const loop = function (nodes: Array<Node>) {
-    let matchNodes: Array<Node> = [];
+  const loop = function (nodes: Array<T>) {
+    let matchNodes: Array<T> = [];
 
     nodes.forEach(node => {
-      if (matchFn(node)) {
+      if (isMatch(node)) {
         matchNodes.push(node);
       } else {
         if (node[childKey] && node[childKey].length){

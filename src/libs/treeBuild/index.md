@@ -69,7 +69,7 @@ treedash.treeBuild(listData, {
 ##### 试一下
 ```jsx
 import React, {useState} from 'react';
-import * as treedash from 'treedash';
+import treedash from 'treedash';
 import {CodeExcuter} from '../../components';
 window.treedash = treedash;
 

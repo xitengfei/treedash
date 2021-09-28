@@ -7,4 +7,3 @@ export {default as treeMap} from './treeMap';
 export {default as treeSearch} from './treeSearch';
 export {default as treeToList} from './treeToList';
 export {default as treeUpdate} from './treeUpdate';
-export * from './interfaces';

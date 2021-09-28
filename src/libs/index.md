@@ -13,3 +13,31 @@ title: API介绍
 - treeSearch 树搜索(返回完整的树)
 - treeToList 将树拍平成为数组
 - treeUpdate 更新树上某个节点
+
+## 使用说明
+
+#### treeData数据结构样例
+```javascript
+[
+  {
+    "code": "130000",
+    "name": "河北省",
+    "children": [
+      {
+        "code": "130100",
+        "name": "石家庄市",
+        "children": [
+          {
+            "code": "130102",
+            "name": "长安区",
+          },
+          {
+            "code": "130103",
+            "name": "桥东区",
+          },
+        ]
+      }
+    ]
+  }
+];
+```

@@ -1,46 +1,51 @@
 import {
-  Node, 
-  IsMatchFn,
-  ITreeOptions
+  AnyObj, 
+  IsMatch,
+  BaseOptions
 } from '../interfaces';
+import {isTypeOf} from '../../utils';
 
-interface IOptions extends ITreeOptions{
+interface IOptions extends BaseOptions{
   deleteEmptyParent?: boolean; // 是否删除没有子元素的父节点
 }
 
 /** 
- * Remove Nodes from Data Tree
+ * Remove Nodes from Data Tree(remove multiple)
  * @param {*} treeData
- * @param {*} matchFn [function]
+ * @param {*} isMatch [function]
+ * @param {*} options
  */
-const treeDelete = function (treeData: Array<Node>, matchFn: IsMatchFn, options: IOptions = {}): Array<Node>{
-  if (!treeData || !Array.isArray(treeData)) return treeData;
-  if ('function' !== typeof matchFn) return treeData;
+const treeDelete = function<T extends AnyObj>(treeData: Array<T>, isMatch: IsMatch<T>, options: IOptions = {}): Array<T>{
+  // check params
+  if (!isTypeOf(treeData, 'array')) return treeData;
+  if (!isTypeOf(isMatch, 'function')) return treeData;
 
   const {
     childKey = 'children',
-    deleteEmptyParent = true
+    deleteEmptyParent = false
   } = options;
 
-  const loop = function(nodes: Array<Node>): Array<Node>{
-    return nodes.map((node: Node) => {
-      if(matchFn(node)){
-        return null;
-      }else {
-        if (node[childKey] && node[childKey].length) {
-          const childs = loop(node[childKey]);
-          if (!childs.length && deleteEmptyParent) {
-            return null;
-          } else {
-            return {
-              ...node,
-              [childKey]: childs,
-            };
-          }
+  const loop = function(nodes: Array<T>): Array<T>{
+    let newNodes: Array<T> = [];
+
+    for(let node of nodes){
+      if(isMatch(node)) continue;
+
+      if (node[childKey] && node[childKey].length) {
+        const childs = loop(node[childKey]);
+
+        if(!(childs.length === 0 && deleteEmptyParent)){
+          newNodes.push({
+            ...node,
+            [childKey]: childs,
+          });
         }
-        return node;
+      }else{
+        newNodes.push(node);
       }
-    }).filter(node => null !== node) as Array<Node>;
+    }
+
+    return newNodes;
   }
 
   return loop(treeData);

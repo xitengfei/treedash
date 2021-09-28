@@ -51,12 +51,12 @@ const treeData = [
   }
 ];
 
+// 遍历节点并生成level
 treedash.treeMap(treeData, (node, parent)=>{
   const level = parent ? parent.level + 1 : 1;
   return {...node, level};
 });
 ```
-
 
 
 ##### 试一下

@@ -25,17 +25,19 @@ import {isTypeOf} from '../../utils';
     let matchNodes: Array<T> = [];
 
     nodes.forEach(node => {
-      if (isMatch(node)) {
-        matchNodes.push(node);
-      } else {
-        if (node[childKey] && node[childKey].length){
-          const childs = loop(node[childKey]);
-          if (childs.length) {
-            // add matched childs only
-            const newNode = {...node, [childKey]: childs };
-            matchNodes.push(newNode);
-          }
-        }
+      let childs: Array<T> = [];
+      if (node[childKey] && node[childKey].length){
+        childs = loop(node[childKey]);
+      }
+
+      if (childs.length) {
+        // add matched childs only
+        const newNode = {...node, [childKey]: childs };
+        matchNodes.push(newNode);
+      } else if(isMatch(node)){
+        let newNode = {...node};
+        delete newNode[childKey]
+        matchNodes.push(newNode);
       }
     });
 

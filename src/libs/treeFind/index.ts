@@ -3,9 +3,10 @@ import {
   BaseOptions,
   AnyObj
 } from '../interfaces';
-import {isTypeOf} from '../../utils';
+import { isTypeOf } from '../../utils';
 
-interface IOptions extends BaseOptions{
+interface IOptions extends BaseOptions {
+  algorithm?: 'BFS' | 'DFS';
 }
 
 /**
@@ -22,24 +23,43 @@ const treeFindBFS = function <T extends AnyObj>(treeData: Array<T>, isMatch: IsM
   if (!isTypeOf(isMatch, 'function')) return null;
 
   const {
-    childKey = 'children'
+    childKey = 'children',
+    algorithm = 'BFS'
   } = options;
 
   let target: T | null = null;
   let queue = [...treeData];
   let visited: Array<any> = []; // 用于处理环状数据
 
-  while (queue.length) {
-    let current = queue.shift()!;
-    visited.push(current); // 访问后进行记录
+  if('BFS' === algorithm){
+    while (queue.length) {
+      let current = queue.shift()!; // 从头取出一个
+      visited.push(current); // 访问后进行记录
+  
+      if (isMatch(current)) {
+        target = current;
+        break;
+      } else if (current[childKey]) {
+        for (let child of current[childKey]) {
+          const index = visited.indexOf(child);
+          if (!~index) queue.push(child);
+        }
+      }
+    }
+  }else{
+    // DFS 深度优先
+    while (queue.length) {
+      let current = queue.pop()!; // 从末尾取一个
+      visited.push(current);
 
-    if (isMatch(current)) {
-      target = current;
-      break;
-    }else if (current[childKey]) {
-      for (let child of current[childKey]) {
-        const index = visited.indexOf(child);
-        if(!~index) queue.push(child);
+      if(isMatch(current)){
+        target = current;
+        break;
+      } else if(current[childKey]){
+        // 倒序放入栈中，以便下次循环按顺序取
+        for (let i = current[childKey].length - 1; i >= 0; i--) {
+          queue.push(current[childKey][i])
+        }
       }
     }
   }

@@ -42,19 +42,13 @@ describe('treeSearch Test: ', () => {
           {
             "code":"130100",
             "name":"石家庄市",
-            "children":[
-              {
-                "code":"130102",
-                "name":"长安区"
-              }
-            ]
           }
         ]
       }
     ];
 
     expect(treeSearch(treeData, (node) => {
-      return node.name.includes('长安');
+      return node.name.includes('石');
     })).toEqual(expected);
   });
 });

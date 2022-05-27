@@ -1,70 +1,69 @@
-import {
-  IsMatch,
-  BaseOptions,
-  AnyObj
-} from '../interfaces';
-import { isTypeOf } from '../../utils';
+import { IsMatch, BaseOptions, AnyObj } from "../interfaces";
+import { isTypeOf } from "../../utils";
 
 interface IOptions extends BaseOptions {
-  algorithm?: 'BFS' | 'DFS';
+  algorithm?: "BFS" | "DFS";
 }
 
 /**
  * Tree Find
  * 使用广度优先算法, 只返回一个目标节点
- * @param treeData 
- * @param isMatch 
- * @param options 
- * @returns 
+ * @param treeData
+ * @param isMatch
+ * @param options
+ * @returns
  */
-const treeFindBFS = function <T extends AnyObj>(treeData: Array<T>, isMatch: IsMatch<T>, options: IOptions = {}): T | null {
+const treeFind = function <T extends AnyObj>(
+  treeData: T[],
+  isMatch: IsMatch<T>,
+  options: IOptions = {}
+): T | undefined {
   // check params
-  if (!isTypeOf(treeData, 'array')) return null;
-  if (!isTypeOf(isMatch, 'function')) return null;
+  if (!isTypeOf(treeData, "array")) return undefined;
+  if (!isTypeOf(isMatch, "function")) return undefined;
 
-  const {
-    childKey = 'children',
-    algorithm = 'BFS'
-  } = options;
+  const { childKey = "children", algorithm = "BFS" } = options;
 
-  let target: T | null = null;
-  let queue = [...treeData];
-  let visited: Array<any> = []; // 用于处理环状数据
-
-  if('BFS' === algorithm){
-    while (queue.length) {
-      let current = queue.shift()!; // 从头取出一个
-      visited.push(current); // 访问后进行记录
-  
-      if (isMatch(current)) {
-        target = current;
-        break;
-      } else if (current[childKey]) {
-        for (let child of current[childKey]) {
-          const index = visited.indexOf(child);
-          if (!~index) queue.push(child);
-        }
-      }
-    }
-  }else{
-    // DFS 深度优先
-    while (queue.length) {
-      let current = queue.pop()!; // 从末尾取一个
-      visited.push(current);
-
-      if(isMatch(current)){
-        target = current;
-        break;
-      } else if(current[childKey]){
-        // 倒序放入栈中，以便下次循环按顺序取
-        for (let i = current[childKey].length - 1; i >= 0; i--) {
-          queue.push(current[childKey][i])
-        }
-      }
-    }
+  if ("BFS" === algorithm) {
+    return findBFS(treeData, isMatch, childKey);
+  } else {
+    return findDFS(treeData, isMatch, childKey);
   }
+};
 
-  return target;
+/** 广度优先算法 */
+function findBFS<T extends AnyObj>(
+  nodes: T[],
+  isMatch: IsMatch<T>,
+  childKey: string,
+  visited: Set<T> = new Set()
+): T | undefined {
+  let matched = nodes.find(isMatch);
+  if (matched) return matched;
+  for (let i = 0; i < nodes.length; i++) {
+    if (visited.has(nodes[i])) continue;
+    visited.add(nodes[i]);
+    matched = findBFS(nodes[i][childKey] || [], isMatch, childKey, visited);
+    if (matched) return matched;
+  }
+  return undefined;
 }
 
-export default treeFindBFS;
+/** 深度优先算法 */
+function findDFS<T extends AnyObj>(
+  nodes: T[],
+  isMatch: IsMatch<T>,
+  childKey: string,
+  visited: Set<T> = new Set()
+): T | undefined {
+  for (let i = 0; i < nodes.length; i++) {
+    if (visited.has(nodes[i])) continue;
+    if (isMatch(nodes[i])) return nodes[i];
+    visited.add(nodes[i]);
+    let matched = findDFS(nodes[i][childKey] || [], isMatch, childKey, visited);
+    if (matched) return matched;
+  }
+  return undefined;
+}
+
+export default treeFind;

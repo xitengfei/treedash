@@ -1,69 +1,72 @@
 ---
 group:
-  path: '/libs'
-  title: '函数'
+  path: "/libs"
+  title: "函数"
   order: 0
 title: treeMap
 ---
 
-
 ## treeMap(treeData, iterator, options)
-对treeData进行遍历并返回新的treeData
+
+对 treeData 进行遍历并返回新的 treeData
 
 ##### 参数
+
 - treeData(**Array\<TreeNode\>**): 树形数据
-- iterator(**Function**) 迭代器函数
+- iterator(**Function**) 迭代器函数，可以返回新的数据结构，形成一棵新树
 - options(**ITreeOptions**): 配置项(可选)
 
 > ITreeOptions
+
 ```typescript
-interface ITreeOptions{
+interface ITreeOptions {
   childKey?: string;
 }
 ```
 
 ##### 返回
+
 Tree Data(**Array\<TreeNode\>**)
 
 ##### 例子
-```javascript
 
+```javascript
 const treeData = [
   {
-    "code": "130000",
-    "name": "河北省",
-    "children": [
+    code: "130000",
+    name: "河北省",
+    children: [
       {
-        "code": "130100",
-        "name": "石家庄市",
-        "children": [
+        code: "130100",
+        name: "石家庄市",
+        children: [
           {
-            "code": "130102",
-            "name": "长安区",
+            code: "130102",
+            name: "长安区",
           },
           {
-            "code": "130103",
-            "name": "桥东区",
+            code: "130103",
+            name: "桥东区",
           },
-        ]
-      }
-    ]
-  }
+        ],
+      },
+    ],
+  },
 ];
 
 // 遍历节点并生成level
-treedash.treeMap(treeData, (node, parent)=>{
+treedash.treeMap(treeData, (node, parent) => {
   const level = parent ? parent.level + 1 : 1;
-  return {...node, level};
+  return { ...node, level };
 });
 ```
 
-
 ##### 试一下
+
 ```jsx
-import React, {useState} from 'react';
-import * as treedash from 'treedash';
-import {CodeExcuter} from '../../components';
+import React, { useState } from "react";
+import * as treedash from "treedash";
+import { CodeExcuter } from "../../components";
 window.treedash = treedash;
 
 const initCode = `
@@ -97,6 +100,6 @@ const initCode = `
 `;
 
 export default () => {
-  return (<CodeExcuter initialCode={initCode} />);
-}
+  return <CodeExcuter initialCode={initCode} />;
+};
 ```

@@ -1,37 +1,36 @@
-import {
-  AnyObj, 
-  TreeIterator,
-  BaseOptions
-} from '../interfaces';
-import {isTypeOf} from '../../utils';
+import { AnyObj, TreeIterator, BaseOptions } from "../interfaces";
+import { isTypeOf } from "../../utils";
 
 /**
  * loop through data trees
  */
-const treeMap = function<T extends AnyObj>(treeData: Array<T>, iterator: TreeIterator<T>, options: BaseOptions = {}): Array<T>{
+const treeMap = function <T extends AnyObj, R = T>(
+  treeData: T[],
+  iterator: TreeIterator<T, R>,
+  options: BaseOptions = {}
+): R[] {
   // check params
-  if (!isTypeOf(treeData, 'array')) return treeData;
-  if (!isTypeOf(iterator, 'function')) return treeData;
+  if (!isTypeOf(treeData, "array")) return (treeData as unknown) as R[];
+  if (!isTypeOf(iterator, "function")) return (treeData as unknown) as R[];
 
-  const {
-    childKey = 'children'
-  } = options;
+  const { childKey = "children" } = options;
 
-  const loop = function(nodes: Array<T>, parent?: T): Array<T>{
+  const loop = function (nodes: T[], parent?: R): R[] {
     return nodes.map((node) => {
-      let nextNode = iterator(node, parent);
+      const nextNode = iterator(node, parent);
+      const children = node[childKey];
 
-      // run next loop using next node  
-      if (nextNode[childKey] && nextNode[childKey].length) {
+      // run next loop using next node
+      if (Array.isArray(children) && children.length > 0) {
         return {
           ...nextNode,
-          [childKey]: loop(nextNode[childKey], nextNode),
+          [childKey]: loop(children, nextNode),
         };
       } else {
         return nextNode;
       }
     });
-  }
+  };
 
   return loop(treeData);
 };

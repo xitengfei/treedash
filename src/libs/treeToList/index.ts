@@ -1,30 +1,32 @@
-import {
-  AnyObj,
-  BaseOptions
-} from '../interfaces';
-import treeMap from '../treeMap';
-import {isTypeOf} from '../../utils';
+import { AnyObj, BaseOptions, TreeIterator } from "../interfaces";
+import treeMap from "../treeMap";
+import { isTypeOf } from "../../utils";
 
 /**
  * 树形转换为数组
  * @param {*} node
  */
- export const treeToList = function<T extends AnyObj>(treeData: Array<T>, options: BaseOptions={}) : Array<Partial<T>>{
+export const treeToList = function <T extends AnyObj, R = T>(
+  treeData: T[],
+  iterator?: TreeIterator<T, R>,
+  options: BaseOptions = {}
+): R[] {
   // check params
-  if (!isTypeOf(treeData, 'array')) return [];
+  if (!isTypeOf(treeData, "array")) return [];
 
-  const {
-    childKey = 'children'
-  } = options;
+  const { childKey = "children" } = options;
 
-  let list: Array<T> = [];
+  let list: R[] = [];
   treeMap(
     treeData,
-    node => {
+    (node: T, parent?: R) => {
       let item = { ...node };
-      delete item[childKey]; // remove childs
-      list.push(item);
-      return node;
+      delete item[childKey]; // remove children
+      const result = iterator
+        ? iterator(item, parent)
+        : ((item as unknown) as R);
+      list.push(result);
+      return result;
     },
     options
   );

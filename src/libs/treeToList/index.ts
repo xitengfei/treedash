@@ -8,7 +8,7 @@ import { isTypeOf } from "../../utils";
  */
 export const treeToList = function <T extends AnyObj, R = T>(
   treeData: T[],
-  iterator?: TreeIterator<T, R>,
+  iterator?: TreeIterator<T, R | false>,
   options: BaseOptions = {}
 ): R[] {
   // check params
@@ -19,13 +19,15 @@ export const treeToList = function <T extends AnyObj, R = T>(
   let list: R[] = [];
   treeMap(
     treeData,
-    (node: T, parent?: R) => {
+    (node: T, parent?: R | false) => {
       let item = { ...node };
       delete item[childKey]; // remove children
       const result = iterator
         ? iterator(item, parent)
         : ((item as unknown) as R);
-      list.push(result);
+      if (result !== false) {
+        list.push(result);
+      }
       return result;
     },
     options

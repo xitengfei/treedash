@@ -24,6 +24,7 @@ const expected = [
             level: 2,
             isLeaf: true,
             path: ",130000,130100",
+            children: [],
           },
           {
             code: "130103",
@@ -32,6 +33,7 @@ const expected = [
             level: 2,
             isLeaf: true,
             path: ",130000,130100",
+            children: [],
           },
         ],
       },
@@ -45,7 +47,6 @@ const listData = [
   { code: "130102", name: "长安区", parentCode: "130100" },
   { code: "130103", name: "桥东区", parentCode: "130100" },
 ];
-
 
 describe("treeBuild Test: ", () => {
   test("general case", () => {

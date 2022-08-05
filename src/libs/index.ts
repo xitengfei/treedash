@@ -6,5 +6,6 @@ export { default as treeFinds } from "./treeFinds";
 export { default as treeFindParent } from "./treeFindParent";
 export { default as treeMap } from "./treeMap";
 export { default as treeSearch } from "./treeSearch";
+export { default as treeSort } from "./treeSort";
 export { default as treeToList } from "./treeToList";
 export { default as treeUpdate } from "./treeUpdate";

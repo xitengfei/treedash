@@ -1,6 +1,6 @@
 {
   "name": "treedash",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "A Tree Utils Library For Development",
   "keywords": [
     "tree",
@@ -34,7 +34,8 @@
   },
   "homepage": "http://treedash.xitf.vip/",
   "dependencies": {
-    "@babel/runtime": "^7.12.5"
+    "@babel/runtime": "^7.12.5",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",

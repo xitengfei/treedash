@@ -1,7 +1,7 @@
 /**
  * Build Tree Data from an Array
  */
-import { BaseOptions, AnyObj } from "../interfaces";
+import { BaseOptions, AnyObj, TreeFindIterator } from "../interfaces";
 import { isTypeOf } from "../../utils";
 
 interface buildTreeOptions<T> extends BaseOptions {
@@ -30,22 +30,45 @@ export type TreeNode<T = unknown> = T & {
   path: string;
 };
 
+/**
+ * 数组构建成树形结构
+ * @param {T[]} dataSource 树形数据源
+ */
+export default function treeBuild<T extends AnyObj, R = T>(
+  dataSource: T[]
+): TreeNode<R>[];
+/**
+ * 数组构建成树形结构
+ * @param {T[]} dataSource 树形数据源
+ * @param {TreeFindIterator<T, R | false>} iterator 迭代器，用来转换每个节点，如果返回false，则忽略该节点
+ */
 export default function treeBuild<T extends AnyObj, R = T>(
   dataSource: T[],
-  iterator?: (node: T, parent?: T) => R | false
+  iterator: TreeFindIterator<T, R | false>
+): TreeNode<R>[];
+/**
+ * 数组构建成树形结构
+ * @param {T[]} dataSource 树形数据源
+ * @param {BaseOptions} options 其它选项
+ */
+export default function treeBuild<T extends AnyObj, R = T>(
+  dataSource: T[],
+  options: buildTreeOptions<T>
+): TreeNode<R>[];
+/**
+ * 数组构建成树形结构
+ * @param {T[]} dataSource 树形数据源
+ * @param {TreeFindIterator<T, R | false>} iterator 迭代器，用来转换每个节点，如果返回false，则忽略该节点
+ * @param {BaseOptions} options 其它选项
+ */
+export default function treeBuild<T extends AnyObj, R = T>(
+  dataSource: T[],
+  iterator: TreeFindIterator<T, R | false>,
+  options: buildTreeOptions<T>
 ): TreeNode<R>[];
 export default function treeBuild<T extends AnyObj, R = T>(
   dataSource: T[],
-  options?: buildTreeOptions<T>
-): TreeNode<R>[];
-export default function treeBuild<T extends AnyObj, R = T>(
-  dataSource: T[],
-  iterator?: (node: T, parent?: T) => R | false,
-  options?: buildTreeOptions<T>
-): TreeNode<R>[];
-export default function treeBuild<T extends AnyObj, R = T>(
-  dataSource: T[],
-  iterator?: ((node: T, parent?: T) => R | false) | buildTreeOptions<T>,
+  iterator?: TreeFindIterator<T, R | false> | buildTreeOptions<T>,
   options?: buildTreeOptions<T>
 ): TreeNode<R>[] {
   if (!dataSource || !dataSource.length) return [];
@@ -78,8 +101,8 @@ export default function treeBuild<T extends AnyObj, R = T>(
     return nodes
       .map((node) => {
         const children = loop(node[idKey], level + 1, path + "," + node[idKey]);
-        if (iterator) {
-          const result = (iterator as iterator<T, R>)(
+        if (typeof iterator === "function") {
+          const result = iterator(
             node,
             dataSource.filter((item) => item[idKey] === pid)[0]
           );
@@ -110,5 +133,3 @@ export default function treeBuild<T extends AnyObj, R = T>(
   // console.log('loop count:', counter, dataSource.length);
   return loop(rootPid, 0, rootPid);
 }
-
-export type iterator<T, R = T> = (node: T, parent?: T) => R | false;

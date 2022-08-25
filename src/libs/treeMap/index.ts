@@ -1,17 +1,48 @@
-import { AnyObj, TreeIterator, BaseOptions } from "../interfaces";
+import { AnyObj, TreeMapIterator, BaseOptions } from "../interfaces";
 import { isTypeOf } from "../../utils";
 
 /**
- * loop through data trees
+ * 遍历树
+ * @param {T[]} treeData 树形数据源
  */
-const treeMap = function <T extends AnyObj, R = T>(
+export function treeMap<T extends AnyObj, R = T>(treeData: T[]): R[];
+/**
+ * 遍历树
+ * @param {T[]} treeData 树形数据源
+ * @param {TreeMapIterator<T, R | false>} iterator 迭代器，用来转换每个节点，如果返回false，则忽略该节点
+ */
+export function treeMap<T extends AnyObj, R = T>(
   treeData: T[],
-  iterator: TreeIterator<T, R | false>,
+  iterator: TreeMapIterator<T, R | false>
+): R[];
+/**
+ * 遍历树
+ * @param {T[]} treeData 树形数据源
+ * @param {BaseOptions} options 其它选项
+ */
+export function treeMap<T extends AnyObj, R = T>(
+  treeData: T[],
+  options: BaseOptions
+): R[];
+/**
+ * 遍历树
+ * @param {T[]} treeData 树形数据源
+ * @param {TreeMapIterator<T, R | false>} iterator 迭代器，用来转换每个节点，如果返回false，则忽略该节点
+ * @param {BaseOptions} options 其它选项
+ */
+export function treeMap<T extends AnyObj, R = T>(
+  treeData: T[],
+  iterator: TreeMapIterator<T, R | false>,
+  options: BaseOptions
+): R[];
+export function treeMap<T extends AnyObj, R = T>(
+  treeData: T[],
+  iterator?: TreeMapIterator<T, R | false> | BaseOptions,
   options: BaseOptions = {}
 ): R[] {
   // check params
   if (!isTypeOf(treeData, "array")) return (treeData as unknown) as R[];
-  if (!isTypeOf(iterator, "function")) return (treeData as unknown) as R[];
+  if (typeof iterator !== "function") return (treeData as unknown) as R[];
 
   const { childKey = "children" } = options;
 
@@ -38,6 +69,6 @@ const treeMap = function <T extends AnyObj, R = T>(
   };
 
   return loop(treeData);
-};
+}
 
 export default treeMap;

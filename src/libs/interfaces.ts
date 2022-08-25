@@ -12,4 +12,5 @@ export interface IsMatch<T> {
   (node: T): boolean;
 }
 
-export type TreeIterator<T, R = T> = (node: T, parent?: R) => R;
+export type TreeMapIterator<T, R = T> = (node: T, parent?: R) => R;
+export type TreeFindIterator<T, R = T> = (node: T, parent?: T) => R;

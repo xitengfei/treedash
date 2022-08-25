@@ -4,40 +4,12 @@ import { isTypeOf } from "../../utils";
 /**
  * 遍历树
  * @param {T[]} treeData 树形数据源
- */
-export function treeMap<T extends AnyObj, R = T>(treeData: T[]): R[];
-/**
- * 遍历树
- * @param {T[]} treeData 树形数据源
- * @param {TreeMapIterator<T, R | false>} iterator 迭代器，用来转换每个节点，如果返回false，则忽略该节点
- */
-export function treeMap<T extends AnyObj, R = T>(
-  treeData: T[],
-  iterator: TreeMapIterator<T, R | false>
-): R[];
-/**
- * 遍历树
- * @param {T[]} treeData 树形数据源
- * @param {BaseOptions} options 其它选项
- */
-export function treeMap<T extends AnyObj, R = T>(
-  treeData: T[],
-  options: BaseOptions
-): R[];
-/**
- * 遍历树
- * @param {T[]} treeData 树形数据源
  * @param {TreeMapIterator<T, R | false>} iterator 迭代器，用来转换每个节点，如果返回false，则忽略该节点
  * @param {BaseOptions} options 其它选项
  */
 export function treeMap<T extends AnyObj, R = T>(
   treeData: T[],
   iterator: TreeMapIterator<T, R | false>,
-  options: BaseOptions
-): R[];
-export function treeMap<T extends AnyObj, R = T>(
-  treeData: T[],
-  iterator?: TreeMapIterator<T, R | false> | BaseOptions,
   options: BaseOptions = {}
 ): R[] {
   // check params

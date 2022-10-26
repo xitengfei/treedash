@@ -39,12 +39,16 @@ export function treeToList<T extends AnyObj, R = T>(
 export function treeToList<T extends AnyObj, R = T>(
   treeData: T[],
   iterator?: TreeMapIterator<T, R | false> | BaseOptions,
-  options: BaseOptions = {}
+  options?: BaseOptions
 ): R[] {
   // check params
   if (!isTypeOf(treeData, "array")) return [];
+  if (typeof iterator !== "function" && options === undefined) {
+    options = iterator as any;
+    iterator = undefined;
+  }
 
-  const { childKey = "children" } = options;
+  const { childKey = "children" } = options || {};
 
   let list: R[] = [];
   treeMap(

@@ -7,14 +7,14 @@ import { isTypeOf } from "../../utils";
  * @param {TreeMapIterator<T, R | false>} iterator 迭代器，用来转换每个节点，如果返回false，则忽略该节点
  * @param {BaseOptions} options 其它选项
  */
-export function treeMap<T extends AnyObj, R = T>(
+export function treeMap<T extends AnyObj, R extends AnyObj = T>(
   treeData: T[],
   iterator: TreeMapIterator<T, R | false>,
   options: BaseOptions = {}
 ): R[] {
   // check params
-  if (!isTypeOf(treeData, "array")) return (treeData as unknown) as R[];
-  if (typeof iterator !== "function") return (treeData as unknown) as R[];
+  if (!isTypeOf(treeData, "array")) return treeData as unknown as R[];
+  if (typeof iterator !== "function") return treeData as unknown as R[];
 
   const { childKey = "children" } = options;
 
@@ -25,7 +25,8 @@ export function treeMap<T extends AnyObj, R = T>(
         if (nextNode === false) {
           return undefined!;
         }
-        const children = node[childKey];
+
+        const children = nextNode[childKey] || node[childKey];
 
         // run next loop using next node
         if (Array.isArray(children) && children.length > 0) {

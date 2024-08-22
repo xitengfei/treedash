@@ -8,21 +8,61 @@
     />
     <meta name="keywords" content="tree lib utils loop" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/umi.e8c7adb5.css" />
+    <link rel="stylesheet" href="/umi.3ec1f225.css" />
     <script>
       window.routerBase = "/";
     </script>
     <script>
-      //! umi version: 3.4.13
+      //! umi version: 3.5.41
+    </script>
+    <script>
+      function generateUUID() {
+        let e = new Date().getTime();
+        return (
+          "undefined" != typeof performance &&
+            "function" == typeof performance.now &&
+            (e += performance.now()),
+          "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (t) {
+            let n = (e + 16 * Math.random()) % 16 | 0;
+            return (
+              (e = Math.floor(e / 16)),
+              ("x" == t ? n : (3 & n) | 8).toString(16)
+            );
+          })
+        );
+      }
+      function getUUID() {
+        if (!navigator.cookieEnabled || !window.localStorage) return "";
+        const e = window.localStorage;
+        let t = e.getItem("ex__uid");
+        return t || ((t = generateUUID()), e.setItem("ex__uid", t)), t;
+      }
+      __qa__ = {
+        modid: getUUID(),
+        channel_id: "test_00001",
+        app_id: "treedash",
+      };
+      (function () {
+        var ga = document.createElement("script");
+        ga.type = "text/javascript";
+        ga.async = true;
+        ga.src =
+          "//s.ssl.qhres2.com/pkg/anti_captcha/analytics/v1.1.1/analytics.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
     </script>
     <script>
       !(function () {
-        var e = localStorage.getItem("dumi:prefers-color"),
-          t = window.matchMedia("(prefers-color-scheme: dark)").matches,
-          r = ["light", "dark", "auto"];
+        var e =
+            navigator.cookieEnabled && void 0 !== window.localStorage
+              ? localStorage.getItem("dumi:prefers-color")
+              : "auto",
+          o = window.matchMedia("(prefers-color-scheme: dark)").matches,
+          t = ["light", "dark", "auto"];
         document.documentElement.setAttribute(
           "data-prefers-color",
-          e === r[2] ? (t ? r[1] : r[0]) : r.includes(e) ? e : r[0]
+          e === t[2] ? (o ? t[1] : t[0]) : t.indexOf(e) > -1 ? e : t[0]
         );
       })();
     </script>
@@ -30,6 +70,6 @@
   <body>
     <div id="root"></div>
 
-    <script src="/umi.dee93f5b.js"></script>
+    <script src="/umi.93054ec9.js"></script>
   </body>
 </html>

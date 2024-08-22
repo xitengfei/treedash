@@ -10,7 +10,9 @@ footer: MIT Licensed | Copyright © 2021-present
 ---
 
 
-<br />
+<Alert type="info">
+  <div gaqtag="new-alert-info">已全面支持TypeScript</div>
+</Alert>
 
 ## 简介
 

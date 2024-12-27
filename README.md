@@ -1,6 +1,6 @@
 # treedash
 
-A light javascript library to process tree data structures
+A lightweight JavaScript library to process tree data structures
 
 ## Installation
 ```
@@ -10,3 +10,5 @@ npm install treedash
 
 yarn add treedash
 ```
+## Documentation
+[https://treedash.xitf.vip/](https://treedash.xitf.vip/)

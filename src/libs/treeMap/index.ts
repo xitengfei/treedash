@@ -26,7 +26,9 @@ export function treeMap<T extends AnyObj, R extends AnyObj = T>(
           return undefined!;
         }
 
-        const children = nextNode[childKey] || node[childKey];
+        const newNode = nextNode || node;
+        // allow drop children from next node
+        const children = newNode[childKey];
 
         // run next loop using next node
         if (Array.isArray(children) && children.length > 0) {

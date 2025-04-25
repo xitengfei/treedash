@@ -26,10 +26,10 @@ const treeUpdate = function <T extends AnyObj>(
 
   const { childKey = "children", greedy = false } = options;
 
-  const loop = function (nodes: Array<T>): Array<T> {
-    return nodes.map((node: T) => {
+  const loop = function (nodes: Array<T>, parent?: T): Array<T> {
+    return nodes.map((node: T, index) => {
       if (isMatch(node)) {
-        const newNode = updateFn(node);
+        const newNode = updateFn(node, parent, index);
 
         if (node[childKey] && greedy) {
           return { ...newNode, [childKey]: loop(node[childKey]) };

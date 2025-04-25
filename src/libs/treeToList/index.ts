@@ -55,10 +55,10 @@ export function treeToList<T extends AnyObj, R extends AnyObj = T>(
   let list: R[] = [];
   treeMap(
     treeData,
-    (node: T, parent?: R | false) => {
+    (node: T, parent: R | false | undefined, index) => {
       let item = { ...node };
       delete item[childKey]; // remove children
-      const result =  typeof iterator === "function" ? iterator(item, parent) : ((item as unknown) as R);
+      const result =  typeof iterator === "function" ? iterator(item, parent, index) : ((item as unknown) as R);
       if (result !== false) list.push(result);
       return node as unknown as R;
     },

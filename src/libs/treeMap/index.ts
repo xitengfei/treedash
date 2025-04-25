@@ -20,8 +20,8 @@ export function treeMap<T extends AnyObj, R extends AnyObj = T>(
 
   const loop = function (nodes: T[], parent?: R): R[] {
     return nodes
-      .map<R>((node) => {
-        const nextNode = iterator(node, parent);
+      .map<R>((node, index) => {
+        const nextNode = iterator(node, parent, index);
         if (nextNode === false) {
           return undefined!;
         }
